@@ -5,11 +5,11 @@ WORKDIR /app
 # Copy the solution file and all project files
 COPY Client/Client.sln ./Client/
 COPY Client/Client.csproj ./Client/
-COPY Domain/Domain.csproj ./Domain
-COPY Persistence/Persistence.csproj ./Persistence
-COPY Server/Server.csproj ./Server
-COPY Services/Services.csproj ./Services
-COPY Shared/Shared.csproj ./Shared
+COPY Domain/Domain.csproj ./Domain/
+COPY Persistence/Persistence.csproj ./Persistence/
+COPY Server/Server.csproj ./Server/
+COPY Services/Services.csproj ./Services/
+COPY Shared/Shared.csproj ./Shared/
 
 # Restore dependencies
 RUN dotnet restore ./Client/Client.sln
