@@ -2,14 +2,16 @@
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 WORKDIR /app
 
-# Copy the solution file and all project files
+# Copy the solution file
 COPY Client/Client.sln ./Client/
+
+# Copy project files
 COPY Client/Client.csproj ./Client/
-COPY Domain/Domain.csproj ./Domain/
-COPY Persistence/Persistence.csproj ./Persistence/
-COPY Server/Server.csproj ./Server/
-COPY Services/Services.csproj ./Services/
 COPY Shared/Shared.csproj ./Shared/
+COPY Server/Server.csproj ./Server/
+COPY Domain/Domain.csproj ./Domain/
+COPY Services/Services.csproj ./Services/
+COPY Persistence/Persistence.csproj ./Persistence/
 
 # Restore dependencies
 RUN dotnet restore ./Client/Client.sln
