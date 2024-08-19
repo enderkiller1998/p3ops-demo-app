@@ -33,4 +33,4 @@ ENV DOTNET_ENVIRONMENT=Production \
 EXPOSE 8080
 
 # Start the server
-ENTRYPOINT ["dotnet", "publish/Server.dll"]
+ENTRYPOINT ["dotnet", "Server.dll"]
