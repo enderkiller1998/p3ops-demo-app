@@ -14,7 +14,7 @@ RUN dotnet restore src/Server/Server.csproj
 RUN dotnet build src/Server/Server.csproj --no-restore
 
 # Publish the application as self-contained
-RUN dotnet publish src/Server/Server.csproj -c Release -o /app/publish --no-restore --runtime linux-x64 --self-contained
+RUN dotnet publish src/Server/Server.csproj -c Release -o publish
 
 # Use the official .NET 6 runtime image for the final build
 FROM mcr.microsoft.com/dotnet/aspnet:6.0
@@ -33,4 +33,4 @@ ENV DOTNET_ENVIRONMENT=Production \
 EXPOSE 8080
 
 # Start the server
-ENTRYPOINT ["dotnet", "Server.dll"]
+ENTRYPOINT ["dotnet", "publish/Server.dll"]
