@@ -27,7 +27,7 @@ COPY --from=build-env /app/publish .
 
 # Set environment variables
 ENV DOTNET_ENVIRONMENT=Production \
-    DOTNET_ConnectionStrings__SqlDatabase="Server=192.168.56.30:1433;Database=sporthal;User Id=sa;Password=Administrator123!;"
+    DOTNET_ConnectionStrings__SqlDatabase="Server=172.17.0.2,1433;Database=sporthal;User Id=sa;Password=Administrator123!;"
 
 # Expose the port the app runs on
 EXPOSE 8080
